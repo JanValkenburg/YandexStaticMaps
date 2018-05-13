@@ -1,12 +1,8 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: janvalkenburg
- * Date: 13-05-18
- * Time: 15:18
+ * Class YandexStaticMaps
  */
-
-
 class YandexStaticMaps
 {
     const MAP_TYPE_MAP = 'map';
@@ -71,6 +67,9 @@ class YandexStaticMaps
      */
     public function setWidth($width)
     {
+        if ($width > self::MAX_IMAGE_WIDTH) {
+            $width = self::MAX_IMAGE_WIDTH;
+        }
         $this->width = $width;
     }
 
@@ -79,6 +78,9 @@ class YandexStaticMaps
      */
     public function setHeight($height)
     {
+        if ($height > self::MAX_IMAGE_HEIGHT) {
+            $height = self::MAX_IMAGE_HEIGHT;
+        }
         $this->height = $height;
     }
 
@@ -101,12 +103,8 @@ class YandexStaticMaps
         foreach ($this->placemarks as $placemark) {
             $pl[] = $placemark->get();
         }
-        $array['pl'] = implode('~', $pl);
+        $array['pt'] = implode('~', $pl);
 
         return $this->baseUrl . http_build_query($array);
     }
 }
-
-
-
-

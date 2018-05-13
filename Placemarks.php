@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class Placemarks
+ */
 class Placemarks
 {
     const STYLE_PM = 'pm';
@@ -15,7 +18,7 @@ class Placemarks
 
     protected $latitude;
     protected $longitude;
-    protected $style = self::STYLE_HOME;
+    protected $style = self::STYLE_ROUND;
     protected $color;
     protected $size;
     protected $content;
